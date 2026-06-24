@@ -43,6 +43,7 @@ class Database:
             conn.commit()
             end = time.perf_counter()
             execution_time = end - start
+            print(f"DB time: {execution_time:.4f}s")
             return ExecutionResult(data, execution_time, sql)
 
         except psycopg2.Error:

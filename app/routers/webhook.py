@@ -1,6 +1,7 @@
 from fastapi import APIRouter, HTTPException, Request, Header
 from app.services.line_handler import handler
 from linebot.exceptions import InvalidSignatureError
+import time
 
 SCOPES=["https://www.googleapis.com/auth/calendar"]
 
@@ -11,10 +12,14 @@ async def webhook(
     request: Request,
     x_line_signature: str = Header(None),
 ):
-    return await handle_line_webhook(
+    start = time.perf_counter()
+    result = await handle_line_webhook(
         request=request,
         signature=x_line_signature,
     )
+    end = time.perf_counter()
+    print(f"all time: {end - start:.4f}s")
+    return result
 
     
 async def handle_line_webhook(request: Request, signature: str):

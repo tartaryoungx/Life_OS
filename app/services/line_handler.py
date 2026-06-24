@@ -1,10 +1,11 @@
+import time
 from app.config import settings
 from linebot import LineBotApi, WebhookHandler
 from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage, 
     QuickReply, QuickReplyButton, MessageAction
 )
-from app.session.state_manager import StateManager
+from app.session.session_redis import StateManager
 
 line_bot_api = LineBotApi(settings.LINE_CHANNEL_ACCESS_TOKEN)
 handler = WebhookHandler(settings.LINE_CHANNEL_SECRET)
@@ -17,6 +18,7 @@ def handle_text_message(event):
 
     # Call state manager to process message
     result = StateManager.handle_message(user_id, user_input)
+
     reply_text = result["reply_text"]
     quick_replies = result["quick_replies"]
 

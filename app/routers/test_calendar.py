@@ -2,12 +2,13 @@ from fastapi import APIRouter, HTTPException, Request, Header
 from app.services.calendar_service import create_service, add_event_test
 from app.services.line_handler import handler
 from linebot.exceptions import InvalidSignatureError
-from app.session.state_manager import StateManager
+from app.session.state_manager_db import StateManager
 from app.database import get_db
+from app.redis_client import redis_client
 
 SCOPES=["https://www.googleapis.com/auth/calendar"]
 
-router = APIRouter(prefix="/api/test" , tags=["Calendar"])
+router = APIRouter(prefix="/test" , tags=["Test"])
 
 @router.post("/calendar")
 async def webhook():
@@ -99,3 +100,9 @@ async def test_db():
     #rows = db_connecter()
 
     return result
+
+@router.post("/redis")
+async def test_redis():
+    a=redis_client.set("test", "hello")
+    print(redis_client.get("test"))
+    return a

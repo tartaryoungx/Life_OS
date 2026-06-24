@@ -10,3 +10,4 @@ httpx
 pydantic
 pydantic-settings
 google-auth-oauthlib >= 1.4.0
+redis>= 8.0.1
