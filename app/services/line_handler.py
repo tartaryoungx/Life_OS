@@ -1,4 +1,3 @@
-import time
 from app.config import settings
 from linebot import LineBotApi, WebhookHandler
 from linebot.models import (
