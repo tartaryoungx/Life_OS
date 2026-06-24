@@ -1,0 +1,12 @@
+fastapi
+uvicorn
+line-bot-sdk
+google-generativeai
+google-auth
+google-api-python-client
+psycopg2-binary
+python-dotenv
+httpx
+pydantic
+pydantic-settings
+google-auth-oauthlib >= 1.4.0

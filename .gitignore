@@ -1,0 +1,15 @@
+
+__pycache__/
+.vscode/
+/ควยเดี๋ยวลบ
+/dump.txt
+client_secret.json
+token.json
+_201963852662-o6iqgsb4h1rc58okr8pjd3ca93uc7jnb.apps.googleusercontent.com
+
+# Virtual environments
+.env
+.venv/
+venv/
+env/
+ENV/
