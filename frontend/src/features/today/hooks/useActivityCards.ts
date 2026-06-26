@@ -24,7 +24,7 @@ const initialCards: ActivityCard[] = [
 ];
 
 export function useActivityCards() {
-  const [cards, setCards] = useState(initialCards);
+  const [cards, setCards] = useState<ActivityCard[]>(initialCards);
 
   function toggleItem(cardTitle: string, itemId: string) {
     setCards((prevCards) =>
