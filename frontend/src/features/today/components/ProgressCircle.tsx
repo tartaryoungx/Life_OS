@@ -1,37 +1,38 @@
-
-import { circleStyles, completedCircleStyles, type Variant,} from "../styles";
-
 type ProgressCircleProps = {
   current: number;
   total: number;
-  variant: Variant;
-  onClick?: () => void;
+  onToggle: () => void;
+  isOpen: boolean;
 };
 
 export default function ProgressCircle({
   current,
   total,
-  variant,
-  onClick,
+  onToggle,
+  isOpen,
 }: ProgressCircleProps) {
-  const percent = total === 0 ? 0 : (current / total) * 100;
-  const completed = current >= total;
+  const percent = total === 0 ? 0 : Math.min((current / total) * 100, 100);
+  const degree = percent * 3.6;
 
   return (
-    <button
-      onClick={onClick}
-      className={`relative grid h-12 w-12 overflow-hidden rounded-full border-5 transition-all duration-500 ${
-        completed ? completedCircleStyles[variant] : circleStyles[variant]
-      }`}
+    <button onClick={onToggle}>
+    <div
+      className="progress-ring relative grid h-10 w-10 place-items-center rounded-full"
+      style={
+        {
+          "--progress": `${degree}deg`,
+        } as React.CSSProperties
+      }
     >
-      <div
-        className={`absolute bottom-0 left-0 w-full transition-[height] duration-500 ${completedCircleStyles[variant]}`}
-        style={{ height: `${percent}%` }}
-      />
-
-      <span className="relative z-10 text-xl font-bold text-white">
-        {completed ? "✓" : ""}
+      <div className="absolute inset-[5px] rounded-full bg-zinc-900" />
+      <span
+        className={`relative z-10 text-sm font-bold text-white transition-transform duration-300 ${
+            isOpen ? "rotate-0" : "rotate-180"
+        }`}
+        >
+        ▲
       </span>
+    </div>
     </button>
   );
 }

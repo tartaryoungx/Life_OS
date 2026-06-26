@@ -23,7 +23,7 @@ export default function DateStrip() {
             <div
               className={
                 active
-                  ? "grid h-20 w-16 place-items-center rounded-full bg-indigo-500 text-xl font-bold"
+                  ? "grid h-15 w-15 place-items-center rounded-full bg-indigo-500 text-xl font-bold"
                   : "grid h-10 w-10 place-items-center rounded-full border-4 border-indigo-950 text-zinc-500"
               }
             >

@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { styles, circleStyles, completedCircleStyles } from "../styles";
 
 type ActivityCardProps = {
@@ -8,6 +7,8 @@ type ActivityCardProps = {
   title: string;
   subtitle?: string;
   variant: "green" | "orange" | "teal";
+  completed: boolean;
+  onToggle: () => void;
 };
 
 export default function ActivityItem({
@@ -15,8 +16,9 @@ export default function ActivityItem({
   title,
   subtitle,
   variant,
+  completed,
+  onToggle,
 }: ActivityCardProps) {
-  const [completed, setCompleted] = useState(false);
 
   return (
     <div //layout
@@ -39,18 +41,12 @@ export default function ActivityItem({
         )}
       </div>
 
-      <button // interaction button
-        onClick={() => setCompleted((prev) => !prev)}
+      <button
+        onClick={onToggle}
         className={`relative z-10 grid h-12 w-12 place-items-center rounded-full border-5 transition-all duration-[600ms]
-          ${
-            completed
-              ? completedCircleStyles[variant]
-              : circleStyles[variant]
-          }`}
+          ${completed ? completedCircleStyles[variant] : circleStyles[variant]}`}
       >
-        {completed && (
-          <span className="text-2xl font-bold text-white">✓</span>
-        )}
+        {completed && <span className="text-2xl font-bold text-white">✓</span>}
       </button>
     </div>
   );

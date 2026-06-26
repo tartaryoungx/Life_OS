@@ -1,10 +1,10 @@
 import TopBar from "../../components/layout/TopBar";
 import DateStrip from "../../features/today/components/DateStrip";
-import ActivityCard from "../../features/today/components/ActivityCard";
+
 import BottomNav from "../../components/layout/BottomNav";
 
 
-export default function Today() {
+export default function Timeline() {
   return (
     <main className="min-h-screen bg-black text-white">
       <div className="mx-auto flex flex-col min-h-screen w-full max-w-md px-4 pt-10 pb-6 md:max-w-7xl md:px-8">
@@ -14,7 +14,7 @@ export default function Today() {
 
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
           <div className="mt-4">
-            <ActivityCard />
+
           </div>
         </div>
 
@@ -25,4 +25,3 @@ export default function Today() {
     </main>
   );
 }
-

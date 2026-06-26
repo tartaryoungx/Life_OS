@@ -1,7 +1,7 @@
 const items = [
   ["▤", "Activity"],
-  ["▥", "Statistics"],
   ["👥", "Sharing"],
+  ["▥", "Statistics"],
   ["⚙", "Settings"],
 ];
 
