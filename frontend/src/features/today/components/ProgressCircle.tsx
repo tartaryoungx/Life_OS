@@ -24,7 +24,7 @@ export default function ProgressCircle({
         } as React.CSSProperties
       }
     >
-      <div className="absolute inset-[5px] rounded-full bg-zinc-900" />
+      <div className="absolute inset-1 rounded-full bg-zinc-900" />
       <span
         className={`relative z-10 text-sm font-bold text-white transition-transform duration-300 ${
             isOpen ? "rotate-0" : "rotate-180"

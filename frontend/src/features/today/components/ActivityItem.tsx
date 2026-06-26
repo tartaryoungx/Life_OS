@@ -25,7 +25,7 @@ export default function ActivityItem({
       className={`relative overflow-hidden flex min-h-25 items-center gap-4 rounded-[28px] border px-5 py-4 ${styles[variant]}`}
     >
       <div //แถบสี success
-        className={`absolute left-0 top-0 h-full transition-[width] duration-[600ms] ${
+        className={`absolute left-0 top-0 h-full transition-[width] duration-500 ${
           completed ? "w-full" : "w-0"
         } ${completedCircleStyles[variant]}`}
       />
@@ -43,7 +43,7 @@ export default function ActivityItem({
 
       <button
         onClick={onToggle}
-        className={`relative z-10 grid h-12 w-12 place-items-center rounded-full border-5 transition-all duration-[600ms]
+        className={`relative z-10 grid h-12 w-12 place-items-center rounded-full border-5 transition-all duration-500
           ${completed ? completedCircleStyles[variant] : circleStyles[variant]}`}
       >
         {completed && <span className="text-2xl font-bold text-white">✓</span>}
