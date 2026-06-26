@@ -25,7 +25,7 @@ export default function ProgressCircle({
       }`}
     >
       <div
-        className={`absolute bottom-0 left-0 w-full transition-[height] duration-500 ${fillStyles[variant]}`}
+        className={`absolute bottom-0 left-0 w-full transition-[height] duration-500 ${completedCircleStyles[variant]}`}
         style={{ height: `${percent}%` }}
       />
 
