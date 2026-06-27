@@ -12,7 +12,7 @@ export default function Today() {
   return (
     <main className="h-dvh overflow-hidden bg-black text-white">
       <div
-        className="mx-auto flex h-full w-full max-w-md flex-col overflow-y-auto px-4 pt-10 pb-6 md:max-w-7xl md:px-8"
+        className="mx-auto flex h-full w-full max-w-md flex-col overflow-y-auto px-4 md:max-w-7xl md:px-8"
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
       >
