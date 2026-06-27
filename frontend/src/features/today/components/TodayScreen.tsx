@@ -16,7 +16,9 @@ export default function Today() {
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
       >
-        <TopBar mode={mode} setMode={setMode} />
+        <div className="sticky top-0 z-50 bg-black px-4 pt-10 pb-4 md:px-8">
+          <TopBar mode={mode} setMode={setMode} />
+        </div>
 
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
           <div className="mt-4">
@@ -26,7 +28,9 @@ export default function Today() {
 
         <div className="flex-1" />
 
-        <BottomNav />
+        <div className="sticky bottom-0 z-50 bg-black px-4 pt-3 pb-6 md:px-8">
+          <BottomNav />
+        </div>
       </div>
     </main>
   );
