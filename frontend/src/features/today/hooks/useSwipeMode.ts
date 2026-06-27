@@ -28,9 +28,14 @@ export function useSwipeMode() {
 
     setTouchStart(null);
   }
+  function changeMode(nextMode: ViewMode) {
+    setMode(nextMode);
+  }
 
   return {
     mode,
+    modes,
+    changeMode,
     handleTouchStart,
     handleTouchEnd,
   };

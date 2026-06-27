@@ -9,7 +9,7 @@ import type { ModeProps } from "../lib/type";
 export default function ActivityCard({mode}: ModeProps) {
   const { toggleItem, getCardsByMode } = useAgendaCards(); // card
   const [openCards, setOpenCards] = useState<Record<string, boolean>>({});;
-  const cards = getCardsByMode(mode);
+  const cards = getCardsByMode(mode); //card's object
 
   //เปิด ปิด card
   function toggleCard(cardTitle: string, isOpen: boolean) {
@@ -21,14 +21,14 @@ export default function ActivityCard({mode}: ModeProps) {
 
   return (
     <div>
-      {cards.map((card) => {
+      {cards.map((card, index) => {
         const total = card.items.length;
         const current = card.items.filter((item) => item.completed).length;
         const isOpen = openCards[card.title] ?? true; // default open
 
         return (
           <section
-            key={card.title}
+            key={`${mode}-${card.title}-${index}`}
             className="rounded-[28px] border border-white/10 bg-zinc-900/90 p-3 shadow-lg mb-4"
           >
             <div className="mb-3 flex items-center justify-between px-1">
@@ -48,7 +48,7 @@ export default function ActivityCard({mode}: ModeProps) {
                   key={item.id}
                   emoji={card.emoji}
                   title={item.title}
-                  subtitle={item.due_date}
+                  subtitle={mode === "today" ? item.due_date : undefined}
                   variant={card.variant}
                   completed={item.completed}
                   onToggle={() => toggleItem(card.title, item.id)}
