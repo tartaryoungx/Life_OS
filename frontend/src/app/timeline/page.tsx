@@ -8,7 +8,7 @@ export default function Timeline() {
   return (
     <main className="min-h-screen bg-black text-white">
       <div className="mx-auto flex flex-col min-h-screen w-full max-w-md px-4 pt-10 pb-6 md:max-w-7xl md:px-8">
-        <TopBar />
+        {/* <TopBar /> */}
 
         {/* <DateStrip /> */}
 
