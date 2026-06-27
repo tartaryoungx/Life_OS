@@ -2,17 +2,20 @@
 
 import ActivityItem from "./ActivityItem";
 import ProgressCircle from "./ProgressCircle";
-import { useActivityCards } from "../hooks/useActivityCards";
+import { useAgendaCards } from "../hooks/useAgendaCards";
 import { useState } from "react";
+import type { ModeProps } from "../lib/type";
 
-export default function ActivityCard() {
-  const { cards, toggleItem } = useActivityCards();
+export default function ActivityCard({mode}: ModeProps) {
+  const { toggleItem, getCardsByMode } = useAgendaCards(); // card
   const [openCards, setOpenCards] = useState<Record<string, boolean>>({});;
+  const cards = getCardsByMode(mode);
 
-  function toggleCard(cardTitle: string) {
+  //เปิด ปิด card
+  function toggleCard(cardTitle: string, isOpen: boolean) {
     setOpenCards((prev) => ({
       ...prev,
-      [cardTitle]: !(prev[cardTitle] ?? true),
+      [cardTitle]: !(isOpen), //เริ่มมาต้องปิดได้ เพราะ default เปิด
     }));
   }
 
@@ -21,7 +24,7 @@ export default function ActivityCard() {
       {cards.map((card) => {
         const total = card.items.length;
         const current = card.items.filter((item) => item.completed).length;
-        const isOpen = openCards[card.title] ?? true;
+        const isOpen = openCards[card.title] ?? true; // default open
 
         return (
           <section
@@ -33,7 +36,9 @@ export default function ActivityCard() {
                 {card.emoji} {card.title}
               </div>
 
-              <ProgressCircle current={current} total={total} onToggle={() => toggleCard(card.title)} isOpen={isOpen}/>
+              <ProgressCircle current={current} total={total} 
+              onToggle={() => toggleCard(card.title, isOpen)} isOpen={isOpen}/>
+              {/* pass open value เข้าไปใช้ตอน onClick*/}
             </div>
 
           {isOpen && (

@@ -1,5 +1,5 @@
 
-import TodayScreen from "../../features/today/TodayScreen";
+import TodayScreen from "../../features/today/ActivityView";
 
 export default function TodayPage() {
 

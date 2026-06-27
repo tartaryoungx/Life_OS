@@ -1,9 +1,3 @@
-export type Item = {
-  id: string;
-  user_id: string;
-  title: string;
-  due_date: string;
-};
 
 export type Variant = "green" | "orange" | "teal";
 
@@ -19,6 +13,10 @@ export type ActivityCard = {
   emoji: string;
   variant: Variant;
   items: Activity[];
+};
+
+export type ModeProps = {
+  mode: ViewMode;
 };
 
 // Header 
