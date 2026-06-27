@@ -1,11 +1,10 @@
 import { useState } from "react";
-
-export type ViewMode = "overdue" | "today" | "upcoming";
+import type { ViewMode } from "../lib/type";
 
 const modes: ViewMode[] = ["overdue", "today", "upcoming"];
 
-export function useSwipeMode(initialMode: ViewMode = "today") {
-  const [mode, setMode] = useState<ViewMode>(initialMode);
+export function useSwipeMode() {
+  const [mode, setMode] = useState<ViewMode>("today");
   const [touchStart, setTouchStart] = useState<number | null>(null);
 
   function handleTouchStart(e: React.TouchEvent) {
@@ -19,11 +18,11 @@ export function useSwipeMode(initialMode: ViewMode = "today") {
     const diff = touchStart - touchEnd;
     const index = modes.indexOf(mode);
 
-    if (diff > 50 && index < modes.length - 1) {
+    if (diff > 100 && index < modes.length - 1) {
       setMode(modes[index + 1]);
     }
 
-    if (diff < -50 && index > 0) {
+    if (diff < -100 && index > 0) {
       setMode(modes[index - 1]);
     }
 
@@ -32,7 +31,6 @@ export function useSwipeMode(initialMode: ViewMode = "today") {
 
   return {
     mode,
-    setMode,
     handleTouchStart,
     handleTouchEnd,
   };

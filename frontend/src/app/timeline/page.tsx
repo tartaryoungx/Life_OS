@@ -1,4 +1,4 @@
-import TopBar from "../../components/layout/TopBar";
+import TopBar from "../../components/layout/Header";
 import DateStrip from "../../features/today/components/DateStrip";
 
 import BottomNav from "../../components/layout/BottomNav";

@@ -20,3 +20,12 @@ export type ActivityCard = {
   variant: Variant;
   items: Activity[];
 };
+
+// Header 
+export type ViewMode = "overdue" | "today" | "upcoming";
+
+export const labels: Record<ViewMode, string> = {
+  overdue: "Overdue",
+  today: "Today",
+  upcoming: "Upcoming",
+};

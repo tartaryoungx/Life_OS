@@ -1,5 +1,5 @@
 
-import TodayScreen from "../../features/today/components/TodayScreen";
+import TodayScreen from "../../features/today/TodayScreen";
 
 export default function TodayPage() {
 

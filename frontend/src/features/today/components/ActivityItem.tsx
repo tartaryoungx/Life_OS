@@ -1,6 +1,6 @@
 "use client";
 
-import { styles, circleStyles, completedCircleStyles } from "../styles";
+import { styles, circleStyles, completedCircleStyles } from "../lib/styles";
 
 type ActivityCardProps = {
   emoji: string;

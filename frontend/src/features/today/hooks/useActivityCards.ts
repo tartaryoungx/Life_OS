@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { events, tasks } from "../data/mockActivities";
-import type { ActivityCard } from "../type";
+import { events, tasks } from "../lib/mockActivities";
+import type { ActivityCard } from "../lib/type";
 
 const initialCards: ActivityCard[] = [
   {
